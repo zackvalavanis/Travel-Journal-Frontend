@@ -16,6 +16,19 @@ export function Header() {
   const [open, setOpen] = useState(false);
   const anchorRef = useRef(null);
   const navigate = useNavigate();
+  const [ currentUser, setCurrentUser ] = useState({});
+
+  const getUserData = () => { 
+    axios.get("http://localhost:3000/users/current.json").then((response) => { 
+      console.log(response.data);
+      return response.data;
+    })
+  }
+
+
+
+
+
 
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);

@@ -29,7 +29,11 @@ const router = createBrowserRouter( [
       }, 
       { 
         path: '/AboutMe', 
-        element: <AboutMePage />
+        element: <AboutMePage />, 
+        loader: () => axios.get(`http://localhost:3000/mes.json`).then((response) => { 
+          console.log(response.data);
+          return response.data;
+        })
       }, 
       { 
         path: '/create', 
