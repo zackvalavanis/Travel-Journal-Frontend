@@ -93,8 +93,8 @@ export function Header() {
                       <Link to='/SignupPage'>
                       <MenuItem onClick={handleClose}>Sign Up</MenuItem>
                       </Link>
-                      <Link to='LoginPage'>
-                      <MenuItem onClick={handleClose}>Logout</MenuItem>
+                      <Link to='/LoginPage'>
+                      <MenuItem onClick={handleClose}>Login</MenuItem>
                       </Link>
                     </MenuList>
                   </ClickAwayListener>
