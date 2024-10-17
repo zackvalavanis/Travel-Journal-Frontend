@@ -9,6 +9,7 @@ import Popper from '@mui/material/Popper';
 import MenuItem from '@mui/material/MenuItem';
 import MenuList from '@mui/material/MenuList';
 import Stack from '@mui/material/Stack';
+import { LogoutLink } from './LogoutLink'
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -96,6 +97,9 @@ export function Header() {
                       <Link to='/LoginPage'>
                       <MenuItem onClick={handleClose}>Login</MenuItem>
                       </Link>
+                      <MenuItem onClick={handleClose}>
+                      <LogoutLink>Logout</LogoutLink>
+                      </MenuItem>
                     </MenuList>
                   </ClickAwayListener>
                 </Paper>
