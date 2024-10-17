@@ -3,6 +3,7 @@ import { Footer } from './Footer.jsx';
 import { Home } from './Home.jsx'
 import { AboutMePage } from './AboutMePage.jsx'
 import { CreatePostPage } from './CreatePostPage.jsx'
+import { SignupPage } from './SignupPage.jsx';
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import axios from 'axios'
 
@@ -32,6 +33,10 @@ const router = createBrowserRouter( [
       { 
         path: '/create', 
         element: <CreatePostPage />
+      }, 
+      {
+        path: '/SignupPage', 
+        element: <SignupPage />
       }
     ]
   }

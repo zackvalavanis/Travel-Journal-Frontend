@@ -6,6 +6,7 @@ header {
   justify-content: space-between;
   /* Space between left and right sections */
   position: sticky;
+  /* Stick to the top on scroll */
   top: 0;
   background-color: white;
   z-index: 100;
@@ -24,12 +25,17 @@ header {
 
 .header-center .link-container {
   margin: 0 15px;
-  /* Space between links */
+  /* Space between center links */
 }
 
 .header-right {
   display: flex;
   /* Keep the right section as flex */
   margin-left: auto;
-  /* Pushes this section to the right */
+  /* Push this section to the right */
+}
+
+.header-right .link-container {
+  margin-left: 15px;
+  /* Add space between right links */
 }

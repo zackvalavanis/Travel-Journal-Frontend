@@ -9,17 +9,8 @@ export function CreatePostPage () {
     axios.post('http://localhost:3000/posts.json', params).then((response) => { 
       console.log(response.data);
       return response.data
-
     })
   }
-
-
-
-
-
-
-
-
 
 
   return ( 
@@ -33,7 +24,10 @@ export function CreatePostPage () {
           Post: <input name='text' type='text' required/>
         </div>
         <div>
-          user_id: <input name='user_id' type='text' />
+          user_id: <input name='user_id' type='text' required/>
+        </div>
+        <div>
+          Image: <input name='image_url' type='text' />
         </div>
         <button type='submit'>Create Post</button>
       </form>

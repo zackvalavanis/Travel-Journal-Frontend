@@ -17,6 +17,7 @@ export function Home () {
           ) : (
             <div>No image available</div>
           )}
+        <button>More Info</button>
         </div>
       ))}
     </div>
