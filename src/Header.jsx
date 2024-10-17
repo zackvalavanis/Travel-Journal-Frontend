@@ -10,10 +10,12 @@ import MenuItem from '@mui/material/MenuItem';
 import MenuList from '@mui/material/MenuList';
 import Stack from '@mui/material/Stack';
 import { LogoutLink } from './LogoutLink'
+import { useNavigate } from 'react-router-dom';
 
 export function Header() {
   const [open, setOpen] = useState(false);
   const anchorRef = useRef(null);
+  const navigate = useNavigate();
 
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);
@@ -88,15 +90,12 @@ export function Header() {
                       aria-labelledby="composition-button"
                       onKeyDown={handleListKeyDown}
                     >
-                      <Link to='/AboutMe'>
-                      <MenuItem onClick={handleClose}>About Me</MenuItem>
-                      </Link>
-                      <Link to='/SignupPage'>
-                      <MenuItem onClick={handleClose}>Sign Up</MenuItem>
-                      </Link>
-                      <Link to='/LoginPage'>
-                      <MenuItem onClick={handleClose}>Login</MenuItem>
-                      </Link>
+                      <MenuItem onClick={ () => {handleClose; navigate('/AboutMe');}}>About Me
+                      </MenuItem>
+                      <MenuItem onClick={ () => {handleClose; navigate('/SignupPage');}}>Sign Up
+                      </MenuItem>
+                      <MenuItem onClick={ () => {handleClose; navigate('/LoginPage');}}>Login
+                      </MenuItem>
                       <MenuItem onClick={handleClose}>
                       <LogoutLink>Logout</LogoutLink>
                       </MenuItem>
