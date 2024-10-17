@@ -40,9 +40,9 @@ export function Header() {
     }
   };
 
-  const aboutMe = () => (
+  const aboutMe = isLoggedIn ? (
       <MenuItem onClick={ () => {handleClose; navigate('/AboutMe');}}>About Me</MenuItem>
-  );
+  ) : null;
 
   const logoutPage = isLoggedIn ? (
     <div>
@@ -107,7 +107,7 @@ export function Header() {
                       onKeyDown={handleListKeyDown}
                     >
                       <div>
-                      {aboutMe()}
+                      {aboutMe}
                       </div>
                       <MenuItem onClick={ () => {handleClose; navigate('/SignupPage');}}>Sign Up
                       </MenuItem>
