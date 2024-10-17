@@ -7,6 +7,7 @@ import { SignupPage } from './SignupPage.jsx';
 import { LoginPage } from './LoginPage.jsx';
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import axios from 'axios'
+import { AuthProvider } from './AuthContext';
 
 
 const router = createBrowserRouter( [
@@ -54,7 +55,9 @@ const router = createBrowserRouter( [
 
 function App() {
   return (
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   )
 }
 

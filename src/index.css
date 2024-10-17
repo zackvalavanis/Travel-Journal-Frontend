@@ -11,4 +11,5 @@ body {
   /* Remove default padding */
   overflow-x: hidden;
   /* Prevent horizontal scrolling */
+  scroll-behavior: smooth;
 }

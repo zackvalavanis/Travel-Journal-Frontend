@@ -1,6 +1,6 @@
 import './Header.css';
 import { Link } from 'react-router-dom';
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useContext, useState, useRef, useEffect } from 'react';
 import Button from '@mui/material/Button';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
 import Grow from '@mui/material/Grow';
@@ -11,24 +11,14 @@ import MenuList from '@mui/material/MenuList';
 import Stack from '@mui/material/Stack';
 import { LogoutLink } from './LogoutLink'
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios'
+import { AuthContext } from './AuthContext';
 
 export function Header() {
   const [open, setOpen] = useState(false);
   const anchorRef = useRef(null);
   const navigate = useNavigate();
-  const [ currentUser, setCurrentUser ] = useState({});
-
-  const getUserData = () => { 
-    axios.get("http://localhost:3000/users/current.json").then((response) => { 
-      console.log(response.data);
-      return response.data;
-    })
-  }
-
-
-
-
-
+  const { currentUser, isLoggedIn, logout} = useContext(AuthContext);
 
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);
@@ -61,6 +51,9 @@ export function Header() {
 
   return (
     <header>
+      <div className='header-left'>
+        {isLoggedIn ? <>Welcome, {currentUser.name}</> : <>Please Log In </>}
+      </div>
       <div className='header-center'>
         <div className='link-container'>
           <Link to='/'>Home</Link>
@@ -109,7 +102,7 @@ export function Header() {
                       </MenuItem>
                       <MenuItem onClick={ () => {handleClose; navigate('/LoginPage');}}>Login
                       </MenuItem>
-                      <MenuItem onClick={handleClose}>
+                      <MenuItem onClick={ () => {handleClose}}>
                       <LogoutLink>Logout</LogoutLink>
                       </MenuItem>
                     </MenuList>

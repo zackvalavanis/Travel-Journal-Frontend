@@ -1,9 +1,25 @@
 import { useLoaderData } from 'react-router-dom'
 import './Home.css'
+import { Modal } from "./Modal"
+import { useState } from 'react'
+import { PostsShowPage } from './PostsShowPage'
 
 export function Home () {
   const posts = useLoaderData();
+  const [ isPostVisible, setIsPostVisible ] = useState(false);
+  const [ isCurrentPost, setIsCurrentPost ] = useState({});
 
+  const handleShow = (post) => { 
+    console.log('handleshow', post);
+    setIsPostVisible(true);
+    setIsCurrentPost(post);
+  }
+
+  const handleClose = () => { 
+    setIsPostVisible(false)
+  }
+
+   
 
   return (
     <div className='home-cards'>
@@ -17,7 +33,10 @@ export function Home () {
           ) : (
             <div>No image available</div>
           )}
-        <button>More Info</button>
+          <button onClick={handleShow}>More Info</button>
+          <Modal show={isPostVisible} onClose={handleClose}>
+            <PostsShowPage />
+          </Modal>
         </div>
       ))}
     </div>
