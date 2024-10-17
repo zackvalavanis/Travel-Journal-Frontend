@@ -1,7 +1,22 @@
 import './Header.css'
+import { Link } from 'react-router-dom'
 
 export function Header () { 
   return (
-    <h1>Hello all</h1>
+    <header>
+      <div className='header-center'>
+        <div className='link-container'>
+          <Link to='/'>Home</Link>
+        </div>
+        <div className='link-container'>
+          <Link to='/create'>Post</Link>
+        </div>
+      </div>
+      <div className='header-right'>
+        <div className='link-container'>
+          <Link to='/AboutMe'> About Me</Link>
+        </div>
+      </div>
+    </header>
   )
 }

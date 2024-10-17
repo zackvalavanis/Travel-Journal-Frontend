@@ -1,0 +1,35 @@
+header {
+  display: flex;
+  /* Use flexbox for layout */
+  align-items: center;
+  /* Center items vertically */
+  justify-content: space-between;
+  /* Space between left and right sections */
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 100;
+  width: 100%;
+  padding: 10px 20px;
+}
+
+.header-center {
+  display: flex;
+  /* Keep it as flex to arrange links */
+  justify-content: center;
+  /* Center the links inside this div */
+  flex-grow: 1;
+  /* Allow this div to grow and take available space */
+}
+
+.header-center .link-container {
+  margin: 0 15px;
+  /* Space between links */
+}
+
+.header-right {
+  display: flex;
+  /* Keep the right section as flex */
+  margin-left: auto;
+  /* Pushes this section to the right */
+}

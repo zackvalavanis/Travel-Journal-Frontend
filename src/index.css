@@ -1,0 +1,14 @@
+* {
+  box-sizing: border-box;
+  /* Include padding and borders in width */
+}
+
+html,
+body {
+  margin: 0;
+  /* Remove default margin */
+  padding: 0;
+  /* Remove default padding */
+  overflow-x: hidden;
+  /* Prevent horizontal scrolling */
+}
