@@ -3,6 +3,7 @@ import './Home.css'
 import { Modal } from "./Modal"
 import { useState } from 'react'
 import { PostsShowPage } from './PostsShowPage'
+import { Banner } from './Banner.jsx'
 
 export function Home () {
   const posts = useLoaderData();
@@ -23,6 +24,7 @@ export function Home () {
 
   return (
     <div className='home-cards'>
+      <Banner />
       <h1>My Travels</h1>
       {posts.map((post) => ( 
         <div key={post.id}>

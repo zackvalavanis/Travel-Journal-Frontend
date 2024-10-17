@@ -40,6 +40,16 @@ export function Header() {
     }
   };
 
+  const aboutMe = () => (
+      <MenuItem onClick={ () => {handleClose; navigate('/AboutMe');}}>About Me</MenuItem>
+  );
+
+  const logoutPage = isLoggedIn ? (
+    <div>
+      <LogoutLink>Logout</LogoutLink>
+    </div>
+  ) : null;
+
   // Return focus to the button when transitioning from !open -> open
   const prevOpen = useRef(open);
   useEffect(() => {
@@ -96,14 +106,15 @@ export function Header() {
                       aria-labelledby="composition-button"
                       onKeyDown={handleListKeyDown}
                     >
-                      <MenuItem onClick={ () => {handleClose; navigate('/AboutMe');}}>About Me
-                      </MenuItem>
+                      <div>
+                      {aboutMe()}
+                      </div>
                       <MenuItem onClick={ () => {handleClose; navigate('/SignupPage');}}>Sign Up
                       </MenuItem>
                       <MenuItem onClick={ () => {handleClose; navigate('/LoginPage');}}>Login
                       </MenuItem>
                       <MenuItem onClick={ () => {handleClose}}>
-                      <LogoutLink>Logout</LogoutLink>
+                      {logoutPage}
                       </MenuItem>
                     </MenuList>
                   </ClickAwayListener>
