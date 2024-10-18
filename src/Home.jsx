@@ -20,14 +20,13 @@ export function Home () {
   const handleClose = () => { 
     setIsPostVisible(false)
   }
-
    
   return (
     <div className='home-cards'>
       <Banner />
-      <PostsIndexPage />
+      <PostsIndexPage posts={posts} onShow={handleShow}/>
       <Modal show={isPostVisible} onClose={handleClose}>
-        <PostsShowPage />
+        <PostsShowPage post={isCurrentPost}/>
       </Modal>
     </div>
   

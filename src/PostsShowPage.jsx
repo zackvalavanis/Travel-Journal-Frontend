@@ -1,18 +1,10 @@
-import { useLoaderData } from 'react-router-dom';
-
-export function PostsShowPage () { 
-  const posts = useLoaderData();
+export function PostsShowPage({ post }) {
+  if (!post) return null; // Ensure post exists
 
   return (
     <div>
-      {posts.map((post) => { 
-        <div key={post.id}>
-          <h1>{post.title}</h1>
-        </div>
-      })}
-      
+      <h1>{post.title}</h1>
+      <p>{post.text}</p>
     </div>
-
-  )
-
+  );
 }
