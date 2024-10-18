@@ -4,7 +4,7 @@ import axios from 'axios';
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [currentUser, setCurrentUser] = useState({});
+  const [currentUser, setCurrentUser] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const getUserData = async () => {
@@ -33,12 +33,12 @@ export const AuthProvider = ({ children }) => {
 
   const logout = () => {
     localStorage.removeItem('jwt');
-    setCurrentUser({});
+    setCurrentUser(null);
     setIsLoggedIn(false);
   };
 
   return (
-    <AuthContext.Provider value={{ currentUser, isLoggedIn, login, logout }}>
+    <AuthContext.Provider value={{ currentUser, isLoggedIn, setCurrentUser, setIsLoggedIn, login, logout }}>
       {children}
     </AuthContext.Provider>
   );
