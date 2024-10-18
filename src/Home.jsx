@@ -4,6 +4,7 @@ import { Modal } from "./Modal"
 import { useState } from 'react'
 import { PostsShowPage } from './PostsShowPage'
 import { Banner } from './Banner.jsx'
+import { PostsIndexPage } from './PostsIndexPage'
 
 export function Home () {
   const posts = useLoaderData();
@@ -21,26 +22,14 @@ export function Home () {
   }
 
    
-
   return (
     <div className='home-cards'>
       <Banner />
-      <h1>My Travels</h1>
-      {posts.map((post) => ( 
-        <div key={post.id}>
-          <h1>{post.title}</h1>
-          <p>{post.text}</p>
-          {post.images && post.images.length > 0 ? ( 
-            <img src={post.images && post.images[0].image_url} />
-          ) : (
-            <div>No image available</div>
-          )}
-          <button onClick={handleShow}>More Info</button>
-          <Modal show={isPostVisible} onClose={handleClose}>
-            <PostsShowPage />
-          </Modal>
-        </div>
-      ))}
+      <PostsIndexPage />
+      <Modal show={isPostVisible} onClose={handleClose}>
+        <PostsShowPage />
+      </Modal>
     </div>
+  
   )
 }
