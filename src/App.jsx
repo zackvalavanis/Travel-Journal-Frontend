@@ -5,6 +5,7 @@ import { AboutMePage } from './AboutMePage.jsx'
 import { CreatePostPage } from './CreatePostPage.jsx'
 import { SignupPage } from './SignupPage.jsx';
 import { LoginPage } from './LoginPage.jsx';
+import { PostsShowPage } from './PostsShowPage.jsx'
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import axios from 'axios'
 import { AuthProvider } from './AuthContext';
@@ -22,7 +23,7 @@ const router = createBrowserRouter( [
     children: [
       { 
         path: '/', 
-        element: <Home />, 
+        element: <Home />,
         loader: () => axios.get('http://localhost:3000/posts.json').then((response) => { 
           console.log(response.data);
           return response.data;
@@ -36,6 +37,14 @@ const router = createBrowserRouter( [
           return response.data;
         })
       }, 
+      { 
+        path: '/posts/:id', 
+        element: <PostsShowPage />,
+        loader: ({ params }) => axios.get(`http://localhost:3000/posts/${params.id}.json`).then((response) => { 
+          console.log(response.data);
+          return response.data;
+        })
+      },
       { 
         path: '/create', 
         element: <CreatePostPage />

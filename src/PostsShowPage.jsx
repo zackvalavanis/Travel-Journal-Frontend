@@ -1,10 +1,16 @@
-export function PostsShowPage({ post }) {
-  if (!post) return null; // Ensure post exists
+import { useLoaderData } from 'react-router-dom'
 
-  return (
+export function PostsShowPage () { 
+  const post = useLoaderData();
+
+  return ( 
     <div>
-      <h1>{post.title}</h1>
+      <img src={post.images[0].image_url}></img>
+      <h1>
+        {post.title}
+      </h1>
       <p>{post.text}</p>
     </div>
-  );
+    )
+
 }
