@@ -41,8 +41,15 @@ export function Header() {
   };
 
   const aboutMe = isLoggedIn ? (
-      <MenuItem onClick={ () => {handleClose; navigate('/AboutMe');}}>About Me</MenuItem>
-  ) : null;
+    <>
+    <MenuItem onClick={ () => {handleClose; navigate('/AboutMe');}}>About Me</MenuItem>
+    </>
+      
+    ) : ( <>
+          <MenuItem onClick={ () => {handleClose; navigate('/LoginPage');}}>Login</MenuItem>
+          <MenuItem onClick={ () => {handleClose; navigate('/SignupPage');}}>Sign Up</MenuItem>
+        </>
+  );
 
   const logoutPage = isLoggedIn ? (
     <div>
@@ -113,10 +120,8 @@ export function Header() {
                       <div>
                       {aboutMe}
                       </div>
-                      <MenuItem onClick={ () => {handleClose; navigate('/SignupPage');}}>Sign Up
-                      </MenuItem>
-                      <MenuItem onClick={ () => {handleClose; navigate('/LoginPage');}}>Login
-                      </MenuItem>
+                      
+                  
                       <MenuItem onClick={ () => {handleClose}}>
                       {logoutPage}
                       </MenuItem>

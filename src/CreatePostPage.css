@@ -1,0 +1,74 @@
+.create-post {
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  /* Container takes the full width */
+  padding: 20px;
+  /* Optional padding for spacing */
+  box-sizing: border-box;
+  /* Ensure padding is included in width */
+}
+
+.heading {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.form-post {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  /* Ensures form takes full width */
+  max-width: 1200px;
+  /* Optional max width for larger screens */
+  gap: 10px;
+  align-items: stretch;
+  /* Change to stretch so children fill available space */
+}
+
+input,
+textarea {
+  width: 100%;
+  /* Ensures all input fields take full width */
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.button-create-post {
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  width: 100%;
+  /* Button takes full width */
+}
+
+.button-create-post:hover {
+  background-color: #0056b3;
+}
+
+/* Style for the larger post text area */
+.post-textarea {
+  width: 100%;
+  /* Full width of the form */
+  height: 500px;
+  /* Set a larger initial height */
+  padding: 10px;
+  /* Adjust padding for better spacing */
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+  /* Allow vertical resizing */
+}
