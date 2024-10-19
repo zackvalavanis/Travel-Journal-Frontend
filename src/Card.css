@@ -1,8 +1,8 @@
 .cards-container {
   display: flex;
-  /* Use flexbox to arrange cards in a row */
   flex-wrap: wrap;
-  /* Allow wrapping to next line on smaller screens */
+  justify-content: center;
+  /* Center the cards in the container */
   margin: 10px;
   /* Margin around the container */
 }
@@ -10,6 +10,7 @@
 .card {
   position: relative;
   margin: 10px;
+  /* Margin around each card */
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0px 6px 18px -9px rgba(0, 0, 0, 0.75);
@@ -17,7 +18,9 @@
   /* Reduced transition time for better UX */
   cursor: pointer;
   width: 500px;
+  /* Fixed width for the card */
   height: 420px;
+  /* Fixed height for the card */
 }
 
 .card:hover {
@@ -30,8 +33,6 @@
   /* Changed to block for better control */
   object-fit: cover;
   /* Changed to cover for better aspect ratio handling */
-  min-width: 300px;
-  min-height: 200px;
   width: 100%;
   height: auto;
   /* Ensured height is auto for responsive scaling */
@@ -46,8 +47,8 @@
 .card_info>h2 {
   font-size: 18px;
   font-weight: 600;
-  justify-content: center;
   text-align: center;
+  /* Center text in the heading */
   margin: 0;
   /* Removed default margins */
   color: black;
@@ -75,4 +76,5 @@
   margin-bottom: 100px;
   padding-bottom: 200px;
   text-align: center;
+  /* Center text in the expand section */
 }

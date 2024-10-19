@@ -2,10 +2,12 @@ import './CreatePostPage.css';
 import axios from 'axios';
 import { useAuth } from './AuthContext';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export function CreatePostPage() {
   const { currentUser } = useAuth();
   const [imageUrl, setImageURL] = useState('');
+  const navigate = useNavigate();
 
   const handleInputChange = (event) => {
     setImageURL(event.target.value);
@@ -17,6 +19,7 @@ export function CreatePostPage() {
     const params = new FormData(event.target);
     axios.post('http://localhost:3000/posts.json', params).then((response) => {
       console.log(response.data);
+      navigate('/')
       return response.data;
     });
   };
