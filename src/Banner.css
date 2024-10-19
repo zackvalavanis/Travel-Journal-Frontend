@@ -1,5 +1,61 @@
 .banner {
-  background: url('https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?cs=srgb&dl=pexels-souvenirpixels-417074.jpg&fm=jpg');
-  height: 155vh;
+  background: url('https://media.licdn.com/dms/image/v2/C4D1BAQGGdNo6IlDOCQ/company-background_10000/company-background_10000/0/1583275772247?e=2147483647&v=beta&t=0yAsb6yVkN7iA8AU5_19aelUe8XoEpckJ4tdFI3m7xY');
+  height: 55vh;
+  background-size: cover;
+  background-position: center;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: white;
+}
+
+.banner-info {
+  background-color: rgba(0, 0, 0, 0.75);
+  color: white;
+  padding-top: 35vh;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 40px;
+  width: 300px
+}
+
+.text {
+  overflow: hidden;
+  /* Optional: hides overflowing text */
+  text-overflow: ellipsis;
+  /* Optional: add ellipsis for overflowing text */
+  white-space: normal;
+  /* Change this to allow text wrapping */
+  color: white;
+  font-size: 25px;
+  margin: 0;
+  position: absolute;
+  top: 30px;
+  /* Adjust top position as needed */
+  left: 7%;
+  /* Adjust left position as needed */
+  transform: translateX(-50%);
+  /* Center the text horizontally */
+  font-family: 'Roboto', sans-serif;
+  max-width: 10%;
+  /* Optional: set a max-width for better control */
+}
+
+
+.cp {
+  position: absolute;
+  top: 10px;
+  left: 75%;
+  transform: translateX(-50%);
+  background-color: #e18354 !important;
+  font-weight: 900 !important;
+  text-transform: inherit !important;
+  color: white !important;
+  font-family: 'Roboto', sans-serif;
+}
+
+.cp:hover {
+  background-color: white !important;
+  color: #e18354 !important;
 }
