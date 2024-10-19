@@ -11,6 +11,8 @@ import MenuList from '@mui/material/MenuList';
 import { LogoutLink } from './LogoutLink'
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from './AuthContext';
+import HomeIcon from '@mui/icons-material/Home';
+import PostAddIcon from '@mui/icons-material/PostAdd';
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -63,11 +65,15 @@ export function Header() {
         {isLoggedIn ? <>Welcome, {currentUser.name}</> : <>Please Log In </>}
       </div>
       <div className='header-center'>
-        <div className='link-container'>
-          <Link to='/'>Home</Link>
+        <div className='home-button'>
+          <Link to='/' style={{ textDecoration: 'none', color: 'inherit'}}>
+          <HomeIcon />
+          </Link>
         </div>
-        <div className='link-container'>
-          <Link to='/create'>Post</Link>
+        <div className='home-button'>
+          <Link to='/create' style={{textDecoration: 'none', color: 'inherit'}}>
+          <PostAddIcon />
+          </Link>
         </div>
       </div>
       <div>

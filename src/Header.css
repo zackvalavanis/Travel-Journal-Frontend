@@ -29,13 +29,19 @@ header {
 }
 
 .header-right {
-  display: flex;
-  /* Keep the right section as flex */
-  margin-left: auto;
+  display: flex
+    /* Keep the right section as flex */
+    margin-left: auto;
   /* Push this section to the right */
 }
 
 .header-right .link-container {
   margin-left: 15px;
   /* Add space between right links */
+}
+
+.home-button {
+  color: black;
+  justify-content: space-between;
+  padding: 10px;
 }
