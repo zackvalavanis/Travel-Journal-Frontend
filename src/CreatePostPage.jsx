@@ -30,10 +30,10 @@ export function CreatePostPage() {
 
   return (
     <div className='create-post'>
-      <h1 className='heading'>Hello</h1>
+      <h1 className='heading'>Contribute Your Story</h1>
       <form onSubmit={handleSubmit} className='form-post'>
         <div>
-          Title: <input name='title' type='text' required />
+          Title: <input className='create-title' name='title' type='text' required />
         </div>
         <div>
           Post:
@@ -45,11 +45,12 @@ export function CreatePostPage() {
           />
         </div>
         <div>
-          <input defaultValue={currentUser.id} name='user_id' type='hidden' />
+          <input className='create-title' defaultValue={currentUser.id} name='user_id' type='hidden' />
         </div>
         <div>
           Image URL:
           <input
+            className='create-title'
             name='image_url'
             type='text'
             onChange={handleInputChange} // Update imageUrl state on change

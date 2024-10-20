@@ -9,6 +9,7 @@ import { PostsShowPage } from './PostsShowPage.jsx'
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import axios from 'axios'
 import { AuthProvider } from './AuthContext';
+import './index.css'
 
 
 const router = createBrowserRouter( [

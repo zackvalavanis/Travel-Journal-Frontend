@@ -2,7 +2,7 @@ import './Footer.css'
 
 export function Footer () { 
   return (
-    <footer>
+    <footer className='footer'>
       <p>Copyright 2024</p>
     </footer>
   )

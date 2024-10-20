@@ -1,4 +1,13 @@
+/* Ensure html and body are set to 100% height */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  /* Remove default margin */
+}
+
 .create-post {
+  background-color: #F5F5F5;
   font-family: 'Roboto', sans-serif;
   display: flex;
   flex-direction: column;
@@ -6,7 +15,8 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  /* Container takes the full width */
+  height: 100vh;
+  /* Make container fit the whole viewport height */
   padding: 20px;
   /* Optional padding for spacing */
   box-sizing: border-box;
@@ -30,8 +40,7 @@
   /* Change to stretch so children fill available space */
 }
 
-input,
-textarea {
+.create-title {
   width: 100%;
   /* Ensures all input fields take full width */
   padding: 10px;

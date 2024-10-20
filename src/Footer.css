@@ -1,3 +1,14 @@
-Footer {
-  font-size: 20px;
+.footer {
+  font-size: 15px;
+  /* Font size for the footer text */
+  margin: 0;
+  /* Remove default margin */
+  display: flex;
+  /* Use flexbox for layout */
+  justify-content: center;
+  /* Center the content horizontally */
+  align-items: center;
+  /* Center the content vertically */
+  height: 40px;
+  /* Fixed height for the footer */
 }
