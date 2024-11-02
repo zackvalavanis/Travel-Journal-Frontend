@@ -9,6 +9,15 @@
   /* Center the content horizontally */
   align-items: center;
   /* Center the content vertically */
-  height: 40px;
+  height: 38px;
   /* Fixed height for the footer */
+  padding: 40px;
+  background-color: black;
+  text-align: center;
+}
+
+.txt {
+  text-align: center;
+  margin-bottom: 5px;
+  color: white
 }

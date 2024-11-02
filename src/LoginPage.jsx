@@ -25,7 +25,7 @@ export function LoginPage() {
       const userResponse = await axios.get("http://localhost:3000/users/current.json");
       setCurrentUser(userResponse.data);
       setIsLoggedIn(true);
-      navigate('/');
+      navigate('/mypage');
     } catch (error) {
       console.log(error.response);
       setErrors([error.response.data.error || 'Invalid email or password']);
