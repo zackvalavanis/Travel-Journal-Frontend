@@ -1,6 +1,6 @@
 header {
   display: flex;
-  /* Use flexbox for layout */
+  /* Use flexbox for the header */
   align-items: center;
   /* Center items vertically */
   justify-content: space-between;
@@ -14,13 +14,32 @@ header {
   padding: 10px 20px;
 }
 
+.header-left {
+  /* Styles for the left section */
+}
+
+.ikons {
+  display: flex;
+  justify-content: center;
+
+}
+
+.header-center-left {
+  display: flex;
+  /* Use flexbox to arrange items */
+  align-items: center;
+  /* Center items vertically */
+  justify-content: center;
+  /* Center the items horizontally */
+}
+
 .header-center {
   display: flex;
-  /* Keep it as flex to arrange links */
+  /* Flexbox for center links */
   justify-content: center;
   /* Center the links inside this div */
   flex-grow: 1;
-  /* Allow this div to grow and take available space */
+  /* Allow this div to grow */
 }
 
 .header-center .link-container {
@@ -29,9 +48,11 @@ header {
 }
 
 .header-right {
-  display: flex
-    /* Keep the right section as flex */
-    margin-left: auto;
+  display: flex;
+  /* Keep the right section as flex */
+  align-items: center;
+  /* Center items vertically */
+  margin-left: auto;
   /* Push this section to the right */
 }
 
@@ -42,6 +63,6 @@ header {
 
 .home-button {
   color: black;
-  justify-content: space-between;
   padding: 10px;
+  margin: 0 20px;
 }

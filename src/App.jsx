@@ -10,6 +10,8 @@ import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import axios from 'axios'
 import { AuthProvider } from './AuthContext';
 import './index.css'
+import { MyPage } from './MyPage.jsx'
+import { PostsIndexPage } from './PostsIndexPage.jsx'
 
 
 const router = createBrowserRouter( [
@@ -25,10 +27,6 @@ const router = createBrowserRouter( [
       { 
         path: '/', 
         element: <Home />,
-        loader: () => axios.get('http://localhost:3000/posts.json').then((response) => { 
-          console.log(response.data);
-          return response.data;
-        })
       }, 
       { 
         path: '/AboutMe', 
@@ -57,6 +55,10 @@ const router = createBrowserRouter( [
       { 
         path: '/LoginPage', 
         element: <LoginPage />
+      }, 
+      { 
+        path: '/mypage',
+        element: <MyPage />
       }
     ]
   }

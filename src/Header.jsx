@@ -13,6 +13,8 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from './AuthContext';
 import HomeIcon from '@mui/icons-material/Home';
 import PostAddIcon from '@mui/icons-material/PostAdd';
+import { MyPage } from './MyPage.jsx'
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -71,10 +73,16 @@ export function Header() {
       <div className='header-left'>
         {isLoggedIn ? <>Welcome, {currentUser.name}</> : <>Please Log In </>}
       </div>
-      <div className='header-center'>
+      <div className='ikons'>
+      <div className='header-center-left'>
         <div className='home-button'>
           <Link to='/' style={{ textDecoration: 'none', color: 'inherit'}}>
           <HomeIcon />
+          </Link>
+        </div>
+        <div className='header-center'>
+          <Link to='/mypage' style={{textDecoration: 'none', color: 'inherit'}}>
+          <AccountCircleIcon/>
           </Link>
         </div>
         <div className='home-button'>
@@ -82,6 +90,7 @@ export function Header() {
           <PostAddIcon />
           </Link>
         </div>
+      </div>
       </div>
       <div>
       <Button

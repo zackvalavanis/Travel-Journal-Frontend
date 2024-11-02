@@ -7,32 +7,29 @@ import './LoginPage.css';
 export function LoginPage() {
   const [errors, setErrors] = useState([]);
   const navigate = useNavigate();
-  const { setCurrentUser, setIsLoggedIn } = useContext(AuthContext); // Ensure this line is correct
+  const { setCurrentUser, setIsLoggedIn } = useContext(AuthContext);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     setErrors([]);
     const params = new FormData(event.target);
 
-    axios.post("http://localhost:3000/sessions.json", params)
-      .then((response) => {
-        const { jwt } = response.data;
-        axios.defaults.headers.common["Authorization"] = `Bearer ${jwt}`;
-        localStorage.setItem("jwt", jwt);
-        event.target.reset();
+    try {
+      const response = await axios.post("http://localhost:3000/sessions.json", params);
+      const { jwt } = response.data;
+      axios.defaults.headers.common["Authorization"] = `Bearer ${jwt}`;
+      localStorage.setItem("jwt", jwt);
+      event.target.reset();
 
-        // Fetch current user data
-        return axios.get("http://localhost:3000/users/current.json");
-      })
-      .then((userResponse) => {
-        setCurrentUser(userResponse.data); // Ensure this is the correct usage
-        setIsLoggedIn(true);
-        navigate('/');
-      })
-      .catch((error) => {
-        console.log(error.response);
-        setErrors(['Invalid email or password']);
-      });
+      // Fetch current user data
+      const userResponse = await axios.get("http://localhost:3000/users/current.json");
+      setCurrentUser(userResponse.data);
+      setIsLoggedIn(true);
+      navigate('/');
+    } catch (error) {
+      console.log(error.response);
+      setErrors([error.response.data.error || 'Invalid email or password']);
+    }
   };
 
   return (
@@ -45,10 +42,10 @@ export function LoginPage() {
       </ul>
       <form onSubmit={handleSubmit}>
         <div>
-          Email: <input type='email' name='email' />
+          Email: <input type='email' name='email' required />
         </div>
         <div>
-          Password: <input type='password' name='password' />
+          Password: <input type='password' name='password' required />
         </div>
         <button type='submit'>Login</button>
       </form>

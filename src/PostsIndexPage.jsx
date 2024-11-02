@@ -10,41 +10,63 @@ export function PostsIndexPage() {
 
   useEffect(() => {
     const fetchPosts = async () => {
+      const jwt = localStorage.getItem('jwt');
+  
+      if (jwt) {
+        axios.defaults.headers.common["Authorization"] = `Bearer ${jwt}`;
+        console.log("JWT:", jwt);
+      } else {
+        console.error('No JWT found');
+      }
+  
       try {
-        const response = await axios.get('http://localhost:3000/posts.json'); // Adjust your endpoint if necessary
-        setPosts(response.data); // Update posts state with fetched data
+        const response = await axios.get('http://localhost:3000/posts.json');
+        setPosts(response.data);
       } catch (err) {
-        setError(err); // Set error if fetching fails
+        // Improved error handling
+        if (err.response) {
+          setError(`Error: ${err.response.status} - ${err.response.data.message || err.response.data}`);
+        } else {
+          setError(`Error: ${err.message}`);
+        }
       } finally {
-        setLoading(false); // Set loading to false once done
+        setLoading(false);
       }
     };
+  
+    fetchPosts();
+  }, []);
+  
 
-    fetchPosts(); // Call the fetch function
-  }, []); // Empty dependency array means this effect runs once on mount
-
+  // Display loading state
   if (loading) {
-    return <div>Loading...</div>; // Show loading message
+    return <div>Loading...</div>; 
   }
 
+  // Display error state
   if (error) {
-    return <div>Error fetching posts: {error.message}</div>; // Show error message
+    return <div>Error fetching posts: {error.message}</div>; 
   }
 
+  // Display posts
   return (
     <div>
       <h1 className='index-title'>Locations</h1>
       <div className="cards-container">
-        {posts.map((post) => (
-          <div key={post.id} className="card-wrapper"> 
-            <Card
-              src={post.images && post.images.length > 0 ? post.images[0].image_url : ''} 
-              title={post.title}
-              link={`/posts/${post.id}`} 
-              post={post} // Pass the current post to the Card
-            />
-          </div>
-        ))}
+        {posts.map((post) => {
+          const imageUrl = post.images && post.images.length > 0 ? post.images[0].image_url : '';
+          console.log("Image URL:", imageUrl); // Log the image URL
+          return ( // Ensure you return the JSX
+            <div key={post.id} className="card-wrapper"> 
+              <Card
+                src={imageUrl} // Use the imageUrl variable here
+                title={post.title}
+                link={`/posts/${post.id}`} 
+                post={post} // Pass the current post to the Card
+              />
+            </div>
+          );
+        })}
       </div>
     </div>
   );
